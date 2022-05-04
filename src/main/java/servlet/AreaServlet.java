@@ -23,7 +23,7 @@ public class AreaServlet extends HttpServlet {
 		double volume = 4 / 3 * Math.pow(r, 3) * Math.PI;
 
 		PrintWriter out = resp.getWriter();
-		out.println("<HTML>");
+		out.println("<html>");
 		out.println("<head>");
 		out.println("<link rel=\"stylesheet\""
 				+ "	href=\"https://unpkg.com/purecss@2.1.0/build/pure-min.css\">"
@@ -35,13 +35,13 @@ public class AreaServlet extends HttpServlet {
 				+ "		<fieldset>\r\n"
 				+ "			<legend>計算圓面積與球體積</legend>\r\n"
 				+ "			半徑: " + r + "<br />"
-				+ "			圓面積: " + area + "<br />"
-				+ "			球體積: " + volume + "<br />"
-				+ "		</fieldset>"
+				+ "			圓面積: " + String.format("%.2f", area) + "<br />"
+				+ "			球體積: " + String.format("%.2f", volume)  + "<br />"
+				+ "		</fieldset><p />"
 				+ "		<button type=\"submit\" class=\"pure-button pure-button-primary\">返回</button>"
 				+ "	</form>");
 		out.println("</body>");
-		out.println("</HTML>");
+		out.println("</html>");
 	}
 
 	@Override
