@@ -23,13 +23,21 @@ public class MessageServlet extends HttpServlet {
 
 		// 接收前端來的資料
 		String content = req.getParameter("content");
+		String stickerPackageId = req.getParameter("stickerPackageId");
+		String stickerId = req.getParameter("stickerId");
+		String webImageUrl = req.getParameter("webImageUrl");
+
 		// 建立推播服務
 		MessageService messageService = new MessageService();
 		// 進行訊息推播並回傳 httpCode 狀態值
-		int httpCode = messageService.pushMessage(content);
+		//int httpCode = messageService.pushMessage(content);
+		//int httpCode = messageService.pushMessageAndSticker(content, stickerPackageId, stickerId);
+		int httpCode = messageService.pushMessageAndWebImage(content, webImageUrl);
 		// 最後將必要訊息並重導給 jsp 去呈現
 		RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/jsp/message_result.jsp");
 		req.setAttribute("content", content);
+		req.setAttribute("stickerId", stickerId);
+		req.setAttribute("webImageUrl", webImageUrl);
 		req.setAttribute("httpCode", httpCode);
 		rd.forward(req, resp);
 	}

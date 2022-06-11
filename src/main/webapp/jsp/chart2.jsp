@@ -39,14 +39,37 @@
         };
 
         var piechart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var linechart = new google.visualization.LineChart(document.getElementById('linechart'));
+        var columnchart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+        var barchart = new google.visualization.BarChart(document.getElementById('barchart'));
         
         piechart.draw(data, options);
+        linechart.draw(data, options);
+        columnchart.draw(data, options);
+        barchart.draw(data, options);
         
       }
     </script>
   </head>
   <body>
-    <div id="piechart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    <table width="100%">
+    	<tr>
+    		<td width="50%">
+    			<div id="piechart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    		</td>
+    		<td width="50%">
+    			<div id="linechart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td width="50%">
+    			<div id="columnchart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    		</td>
+    		<td width="50%">
+    			<div id="barchart" style="width: <%=w %>px; height: <%=h %>px;"></div>
+    		</td>
+    	</tr>
+    </table>
     
   </body>
 </html>
